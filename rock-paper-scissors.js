@@ -1,5 +1,3 @@
-let humanScore = 0;
-let computerScore = 0;
 const computerChoice = getComputerChoice();
 const humanChoice = getHumanChoice();
 
@@ -39,29 +37,43 @@ function getHumanChoice() {
     }
 }
 
-function playRound(humanChoice, computerChoice) {
-    // restart the round if the choices are the same
-    if (humanChoice == computerChoice) {
+function playGame() {
+    let humanScore = 0;
+    let computerScore = 0;
+    function playRound(humanChoice, computerChoice) {
+        // restart the round if the choices are the same
+        if (humanChoice == computerChoice) {
+            playRound(getHumanChoice(), getComputerChoice());
+        
+        // compare the choices and increase the score of the winner at the end of the round
+        } else if (humanChoice == "rock" && computerChoice == "paper") {
+            console.log("You lose! Paper covers rock and suffocates it!");
+            computerScore++;
+        } else if (humanChoice == "rock" && computerChoice == "scissors") {
+            console.log("You win! Rock breaks scissors into pieces!");
+            humanScore++;
+        } else if (humanChoice == "paper" && computerChoice == "rock") {
+            console.log("You win! Paper folds itself around rock, trapping it forever!");
+            humanScore++;
+        } else if (humanChoice == "paper" && computerChoice == "scissors") {
+            console.log("You lose! Paper can't stand the sharpness of scissors and gets torn to shreds!");
+            computerScore++;
+        } else if (humanChoice == "scissors" && computerChoice == "rock") {
+            console.log("You lose! Scissors cannot withstand the sheer might of The Rock!");
+            computerScore++;
+        } else if (humanChoice == "scissors" && computerChoice == "paper") {
+            console.log("You win! Scissors goes \"snip, snip\", while paper goes \"bye, bye\"!");
+            humanScore++;
+        }
+    }
+    for (let roundCounter = 1; roundCounter <= 5; roundCounter++){
         playRound(getHumanChoice(), getComputerChoice());
-    
-    // compare the choices and increase the score of the winner at the end of the round
-    } else if (humanChoice == "rock" && computerChoice == "paper") {
-        console.log("You lose! Paper covers rock and suffocates it!");
-        computerScore++;
-    } else if (humanChoice == "rock" && computerChoice == "scissors") {
-        console.log("You win! Rock breaks scissors into pieces!");
-        humanScore++;
-    } else if (humanChoice == "paper" && computerChoice == "rock") {
-        console.log("You win! Paper folds itself around rock, trapping it forever!");
-        humanScore++;
-    } else if (humanChoice == "paper" && computerChoice == "scissors") {
-        console.log("You lose! Paper can't stand the sharpness of scissors and gets torn to shreds!");
-        computerScore++;
-    } else if (humanChoice == "scissors" && computerChoice == "rock") {
-        console.log("You lose! Scissors cannot withstand the sheer might of The Rock!");
-        computerScore++;
-    } else if (humanChoice == "scissors" && computerChoice == "paper") {
-        console.log("You win! Scissors goes \"snip, snip\", while paper goes \"bye, bye\"!");
-        humanScore++;
+    }
+    if (humanScore > computerScore) {
+        console.log("You win! AI ain't got nothing on you!");
+    } else {
+        console.log("You lose! Humanity is finished! Bow down to our mechanical overlords!");
     }
 }
+
+playGame();
