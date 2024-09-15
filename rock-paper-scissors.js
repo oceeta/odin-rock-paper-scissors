@@ -4,7 +4,10 @@ const computerChoice = getComputerChoice();
 const humanChoice = getHumanChoice();
 
 function getComputerChoice() {
+    // Make the computer choose a random number between 1 and 3 inclusive
     let randomNumber = Math.floor(Math.random() * 3 + 1);
+
+    // Depending on the number chosen, return either "rock", "paper", or "scissors"
     switch (randomNumber) {
         case 1:
             return "rock";
