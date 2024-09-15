@@ -37,6 +37,7 @@ function getHumanChoice() {
 function playGame() {
     let humanScore = 0;
     let computerScore = 0;
+
     function playRound(humanChoice, computerChoice) {
         // restart the round if the choices are the same
         if (humanChoice == computerChoice) {
@@ -63,9 +64,12 @@ function playGame() {
             humanScore++;
         }
     }
+
     for (let roundCounter = 1; roundCounter <= 5; roundCounter++) {
         playRound(getHumanChoice(), getComputerChoice());
+        console.log(`Score: Player(${humanScore}) - Computer(${computerScore})`);
     }
+
     if (humanScore > computerScore) {
         console.log("You win! AI ain't got nothing on you!");
     } else {
