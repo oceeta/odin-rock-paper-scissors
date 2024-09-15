@@ -12,3 +12,7 @@ I mean, I could just change it, but the joke isn't funny the second time around,
 The game will be played in the browser console. To access the console on your respective browsers, open the HTML file and right-click, and then click "Inspect". This will open your browser's Dev Tools. Navigate to the tab that says "Console". From here, you will be able to play the game. Read further for instructions on how to play.
 
 ## Instructions
+
+
+## Warnings
+["Don't use Rock, Paper, Scissors when you need to make important decisions. Big issues should be discussed in depth and resolved reasonably."](https://www.wikihow.com/Play-Rock,-Paper,-Scissors#warnings)
