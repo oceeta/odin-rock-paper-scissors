@@ -1,6 +1,3 @@
-const computerChoice = getComputerChoice();
-const humanChoice = getHumanChoice();
-
 function getComputerChoice() {
     // Make the computer choose a random number between 1 and 3 inclusive
     let randomNumber = Math.floor(Math.random() * 3 + 1);
@@ -66,7 +63,7 @@ function playGame() {
             humanScore++;
         }
     }
-    for (let roundCounter = 1; roundCounter <= 5; roundCounter++){
+    for (let roundCounter = 1; roundCounter <= 5; roundCounter++) {
         playRound(getHumanChoice(), getComputerChoice());
     }
     if (humanScore > computerScore) {
