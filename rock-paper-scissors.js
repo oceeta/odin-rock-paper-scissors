@@ -1,8 +1,6 @@
 function getComputerChoice() {
-    // Make the computer choose a random number between 1 and 3 inclusive
     let randomNumber = Math.floor(Math.random() * 3 + 1);
 
-    // Depending on the number chosen, return either "rock", "paper", or "scissors"
     switch (randomNumber) {
         case 1:
             return "rock";
@@ -14,11 +12,9 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    // get the human player's choice and store it in a variable called choice
-    let choice = prompt("Please enter your choice between either \"rock\", \"paper\", or \"scissors\"", "");
+    let humanChoice = prompt("Please enter your choice between either \"rock\", \"paper\", or \"scissors\"", "");
 
-    // convert the choice to lowercase and return "rock", "paper", or "scissors" depending on the player's choice
-    switch (choice.toLowerCase()) {
+    switch (humanChoice.toLowerCase()) {
         case "rock":
             return "rock";
         case "paper":
@@ -37,13 +33,11 @@ function getHumanChoice() {
 function playGame() {
     let humanScore = 0;
     let computerScore = 0;
+    const ROUND_LIMIT = 5;
 
     function playRound(humanChoice, computerChoice) {
-        // restart the round if the choices are the same
         if (humanChoice == computerChoice) {
             playRound(getHumanChoice(), getComputerChoice());
-        
-        // compare the choices and increase the score of the winner at the end of the round
         } else if (humanChoice == "rock" && computerChoice == "paper") {
             console.log("You lose! Paper covers rock and suffocates it!");
             computerScore++;
@@ -65,7 +59,7 @@ function playGame() {
         }
     }
 
-    for (let roundCounter = 1; roundCounter <= 5; roundCounter++) {
+    for (let roundCounter = 1; roundCounter <= ROUND_LIMIT; roundCounter++) {
         playRound(getHumanChoice(), getComputerChoice());
         console.log(`Score: Player(${humanScore}) - Computer(${computerScore})`);
     }
